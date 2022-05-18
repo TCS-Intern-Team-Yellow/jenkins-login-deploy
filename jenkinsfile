@@ -1,0 +1,13 @@
+pipeline {
+	agent any
+	stages {
+		stage('Sample') {
+			steps {
+				sh 'git clone https://github.com/TCS-Intern-Team-Yellow/login.git'
+        sh 'sudo docker build -t loginservice .'
+        sh 'sudo docker images ls'
+				}
+			}
+		}
+	}
+}
