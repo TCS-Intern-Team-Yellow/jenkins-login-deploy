@@ -3,7 +3,8 @@ pipeline {
 	stages {
 		stage('Sample') {
 			steps {
-				sh 'whoami'
+				sh 'whoami''
+				sh 'sudo usermod -a -G docker jenkins'
 				git branch: '20220503', url: 'https://github.com/TCS-Intern-Team-Yellow/login.git'
 				sh 'ls'
 				sh 'docker build -t loginservice .'
