@@ -8,6 +8,9 @@ pipeline {
 				sh 'ls'
 				sh 'sudo docker build -t loginservice .'
 				sh 'sudo docker image ls'
+				withCredentials([usernameColonPassword(credentialsId: 'f2863298-cc59-439b-a4f4-402e5539b2ab', variable: '')]) {
+				    sh 'sudo docker login -u $user -p $password'
+				}
 				sh 'sudo docker tag loginservice:latest js194/loginservice'
 				sh 'sudo docker  push js194/loginservice:latest'
 			}
