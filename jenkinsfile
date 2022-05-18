@@ -4,11 +4,10 @@ pipeline {
 		stage('Sample') {
 			steps {
 				sh 'whoami'
-				sh 'echo "" |sudo -S usermod -a -G docker jenkins'
 				git branch: '20220503', url: 'https://github.com/TCS-Intern-Team-Yellow/login.git'
 				sh 'ls'
-				sh 'docker build -t loginservice .'
-				sh 'docker images ls'
+				sh 'sudo docker build -t loginservice .'
+				sh 'sudo docker images ls'
 			}
 		}
 	}
