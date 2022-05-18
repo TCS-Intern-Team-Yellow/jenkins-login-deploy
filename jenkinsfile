@@ -3,7 +3,8 @@ pipeline {
 	stages {
 		stage('Sample') {
 			steps {
-				sh 'git clone https://github.com/TCS-Intern-Team-Yellow/login.git'
+				
+				git 'https://github.com/TCS-Intern-Team-Yellow/login.git'
 				sh 'ls'
 				sh 'cd login'
 				sh 'ls'
