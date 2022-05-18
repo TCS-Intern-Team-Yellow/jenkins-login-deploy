@@ -2,7 +2,7 @@ pipeline {
     agent any 
     environment {
         registry = "js194/loginservice"
-        registryCredential = 'f2863298-cc59-439b-a4f4-402e5539b2ab0'
+        registryCredential = 'f2863298-cc59-439b-a4f4-402e5539b2ab'
         dockerImage = ''
     }
     
@@ -10,17 +10,12 @@ pipeline {
         stage('Cloning Git') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/20220503']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/TCS-Intern-Team-Yellow/login']]])     
-                sh 'ls'
-                sh 'pwd'
             }
         }
     
     stage('Building image') {
       steps{
         script {
-        sh 'whoami'
-        sh 'sudo su'
-        sh 'whoami'
           dockerImage = docker.build registry
         }
       }
