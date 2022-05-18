@@ -20,6 +20,7 @@ pipeline {
         script {
         sh 'whoami'
         sh 'sudo su'
+        sh 'whoami'
           dockerImage = docker.build registry
         }
       }
