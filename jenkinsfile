@@ -3,7 +3,6 @@ pipeline {
 	stages {
 		stage('Sample') {
 			steps {
-				rm -rf login
 				git 'https://github.com/TCS-Intern-Team-Yellow/login.git'
 				sh 'ls'
 				sh 'sudo docker build -t loginservice .'
