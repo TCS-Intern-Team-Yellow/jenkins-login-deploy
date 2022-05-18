@@ -9,7 +9,9 @@ pipeline {
     stages {
         stage('Cloning Git') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/20220503']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/TCS-Intern-Team-Yellow/login']]])       
+                checkout([$class: 'GitSCM', branches: [[name: '*/20220503']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/TCS-Intern-Team-Yellow/login']]])     
+                sh 'ls'
+                sh 'pwd'
             }
         }
     
@@ -26,6 +28,7 @@ pipeline {
      steps{    
          script {
             docker.withRegistry( '', registryCredential ) {
+            sh 'whoami'
             dockerImage.push()
             }
         }
