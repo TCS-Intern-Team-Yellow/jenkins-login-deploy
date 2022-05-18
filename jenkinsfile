@@ -5,6 +5,7 @@ pipeline {
 			steps {
 				git 'https://github.com/TCS-Intern-Team-Yellow/login.git'
 				sh 'ls'
+				sh 'sudo systmctl status docker'
 				sh 'sudo docker build -t loginservice .'
 				sh 'sudo docker images ls'
 			}
