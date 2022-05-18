@@ -7,7 +7,7 @@ pipeline {
 				git branch: '20220503', url: 'https://github.com/TCS-Intern-Team-Yellow/login.git'
 				sh 'ls'
 				//sh 'sudo docker build -t loginservice .'
-				sh 'sudo docker images ls'
+				sh 'sudo docker image ls'
 			}
 		}
 	}
