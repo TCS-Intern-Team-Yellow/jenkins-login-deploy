@@ -18,6 +18,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
+        sh 'whoami'
           dockerImage = docker.build registry
         }
       }
