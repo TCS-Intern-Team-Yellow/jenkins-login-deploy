@@ -6,8 +6,10 @@ pipeline {
 				sh 'whoami'
 				git branch: '20220503', url: 'https://github.com/TCS-Intern-Team-Yellow/login.git'
 				sh 'ls'
-				//sh 'sudo docker build -t loginservice .'
+				sh 'sudo docker build -t loginservice .'
 				sh 'sudo docker image ls'
+				sh 'sudo docker tag loginservice:latest js194/loginservice'
+				sh 'sudo docker  push js194/loginservice:latest'
 			}
 		}
 	}
