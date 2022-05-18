@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage('Sample') {
 			steps {
-				git 'https://github.com/TCS-Intern-Team-Yellow/login.git'
+				git branch: '20220503', url: 'https://github.com/TCS-Intern-Team-Yellow/login.git'
 				sh 'ls'
 				sh 'docker build -t loginservice .'
 				sh 'docker images ls'
