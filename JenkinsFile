@@ -16,7 +16,6 @@ pipeline {
                   branches: [[name: 'main']],
                   userRemoteConfigs: [[
                     url: 'git@github.com:TCS-Intern-Team-Yellow/login.git',
-                    credentialsId: '',
                   ]]
                  ])
            }
