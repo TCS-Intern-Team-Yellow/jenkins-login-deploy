@@ -9,6 +9,18 @@ pipeline {
     }
     
     stages {
+        stage('Checkout SCM') {
+            steps {
+                checkout([
+                    $class: 'GitSCM',
+                  branches: [[name: 'main']],
+                  userRemoteConfigs: [[
+                    url: 'git@github.com:TCS-Intern-Team-Yellow/login.git',
+                    credentialsId: '',
+                  ]]
+                 ])
+           }
+        }
         stage('Cloning Git') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/20220503']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/TCS-Intern-Team-Yellow/login']]])     
